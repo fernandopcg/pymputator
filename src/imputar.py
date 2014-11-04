@@ -26,10 +26,6 @@ except FileNotFoundError:
     print("Please check the attached readme file before running me")
     exit(1)
     
-print(USER)
-print(PWD)
-
-exit(0)
 
 TEMPLATE = {
     'INSERIR': 'Y',
