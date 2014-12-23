@@ -49,19 +49,19 @@ Pymputator uses a number of open source projects to work properly:
 Installation
 --------------
 
-1. Get your copy
+1- Get your copy
 ```
 git clone git://github.com/fernandopcg/pymputator.git
 ```
 
-2. Configure files as stated above and then launch the script
+2- Configure files as stated above and then launch the script
 ```sh
 python pymputator.py
 ```
 
-3. ???
+3- ???
 
-4. Profit
+4- Profit
 
 Disclaimer and licensing
 ----
