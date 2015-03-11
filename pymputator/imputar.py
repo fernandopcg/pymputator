@@ -1,8 +1,14 @@
-import pandas as pd
-from datetime import datetime
-import requests
+import calendar
 import json
 
+from datetime import datetime
+
+import requests
+
+current_year = 2015
+month = 3
+print calendar.monthcalendar(current_year, month)
+exit(0)
 USER = None
 PWD = None
 
