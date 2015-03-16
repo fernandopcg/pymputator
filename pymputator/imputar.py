@@ -1,14 +1,10 @@
+from datetime import datetime
 import calendar
 import json
 
-from datetime import datetime
-
 import requests
 
-try:
-    import pymputator.settings as settings
-except ImportError:
-    import settings
+from pymputator import settings
 
 _now = datetime.now()
 
@@ -41,31 +37,10 @@ def is_weekend(day):
 
 def load_user_configuration_file():
     with open(settings.LOCAL_CONFIGURATION_FILE) as cfg:
-        print cfg
-
+        pass
 
 USER = None
 PWD = None
-
-# Edit this:
-MONTH = pd.date_range('2014-11-01', '2014-11-30', freq='D')
-NOT_WORKING_DAYS = [datetime(2014, 11, 1)]
-############
-
-
-try:
-    config = json.loads(open('config.json').read())
-
-    USER = config["user"]
-    PWD = config["pass"]
-
-except KeyError:
-    print("Please check the attached readme file before running me")
-    exit(1)
-
-except FileNotFoundError:
-    print("Please check the attached readme file before running me")
-    exit(1)
 
 
 TEMPLATE = {
@@ -273,19 +248,6 @@ TEMPLATE = {
     'p_acumulado': ''
 }
 
-
-def is_weekend(day):
-    if day.isoweekday() > 5:
-        return True
-
-
-def is_not_working(day, not_working_days):
-    if day in not_working_days:
-        return True
-
-
-def set_month(month_number):
-    pass
 
 
 if __name__ == '__main__':
