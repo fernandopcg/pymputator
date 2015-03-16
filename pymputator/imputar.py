@@ -5,10 +5,45 @@ from datetime import datetime
 
 import requests
 
-current_year = 2015
-month = 3
-print calendar.monthcalendar(current_year, month)
-exit(0)
+try:
+    import pymputator.settings as settings
+except ImportError:
+    import settings
+
+_now = datetime.now()
+
+def days(month=_now.month):
+    """
+    Generator to give the days of a month. If no month is specified, it uses current month
+    :param month: month to iterate
+    """
+
+    year = _now.year
+    weeks = calendar.monthcalendar(year, month)
+
+    for week in weeks:
+        for day in week:
+            if day != 0:
+                # week is a list such as [0,0,0,1,2,3,4] or [5,6,7,8,9,10,11]
+                # as a default, 0 index in the list correspond to a Monday and so forth
+                # The entries with a value of 0 are only there to complete the list
+                yield datetime(year, month, day)
+
+def is_weekend(day):
+    """
+    Check if the given day is weekend or not.
+    :param day: The day to look if is weekend or not, as a datetime.datetime object
+
+    :rtype: True if the day is weekend, False otherwise
+    """
+    if day.isoweekday() > 5:
+        return True
+
+def load_user_configuration_file():
+    with open(settings.LOCAL_CONFIGURATION_FILE) as cfg:
+        print cfg
+
+
 USER = None
 PWD = None
 
@@ -31,7 +66,7 @@ except KeyError:
 except FileNotFoundError:
     print("Please check the attached readme file before running me")
     exit(1)
-    
+
 
 TEMPLATE = {
     'INSERIR': 'Y',
@@ -247,11 +282,11 @@ def is_weekend(day):
 def is_not_working(day, not_working_days):
     if day in not_working_days:
         return True
-    
-    
+
+
 def set_month(month_number):
     pass
-    
+
 
 if __name__ == '__main__':
 
@@ -268,3 +303,4 @@ if __name__ == '__main__':
             TEMPLATE['setmana'] = week_str
             TEMPLATE['ann'] = day.year
             s.post('http://www.morse.es/gsp/asp/Maqueta2.asp', data=TEMPLATE)
+
