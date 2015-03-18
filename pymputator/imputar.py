@@ -4,7 +4,7 @@ import json
 
 import requests
 
-from pymputator import settings
+import pymputator.settings as settings
 
 _now = datetime.now()
 
@@ -12,6 +12,8 @@ def days(month=_now.month):
     """
     Generator to give the days of a month. If no month is specified, it uses current month
     :param month: month to iterate
+    
+    :return day: generator of days, as `datetime` objects
     """
 
     year = _now.year
@@ -28,9 +30,10 @@ def days(month=_now.month):
 def is_weekend(day):
     """
     Check if the given day is weekend or not.
-    :param day: The day to look if is weekend or not, as a datetime.datetime object
 
-    :rtype: True if the day is weekend, False otherwise
+    :param day: The day to look if is weekend or not, as a datetime.datetime object
+    
+    :rtype: Boolean
     """
     if day.isoweekday() > 5:
         return True
