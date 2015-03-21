@@ -21,6 +21,18 @@ Get your copy
 git clone git://github.com/fernandopcg/pymputator.git
 ```
 
+Move into directory
+
+```
+cd pymputator
+```
+
+Install requeriments
+
+```
+pip install requeriments.txt
+```
+
 Usage
 -----
 

@@ -136,10 +136,10 @@ if __name__ == '__main__':
         for day in days():
             if is_work_day(day):
                 day_str = day.strftime('%d/%m/%Y')
-                    log.info('Imputing day {day}'.format(day=day_str))
-                    post_data['p_data'] = day_str
-                    # FIXME: Selects are not correctly parsed, here are hardcoded and only work with one line
-                    post_data['c_client1'] = post_data['p_Client1']
-                    post_data['c_exe1'] = post_data['p_exe1']
+                log.info('Imputing day {day}'.format(day=day_str))
+                post_data['p_data'] = day_str
+                # FIXME: Selects are not correctly parsed, here are hardcoded and only work with one line
+                post_data['c_client1'] = post_data['p_Client1']
+                post_data['c_exe1'] = post_data['p_exe1']
 
-                    s.post('http://www.morse.es/gsp/asp/Maqueta2.asp', data=post_data)
+                s.post('http://www.morse.es/gsp/asp/Maqueta2.asp', data=post_data)
