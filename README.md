@@ -7,30 +7,26 @@ Now you can be pympin in no time, and quickly get back to work without fear of t
 
 
 Version
-----
+-------
 
 0.1b
 
 
-Usage
-------------
-* TBD
-
 Installation
 --------------
 
-1- Get your copy
+Get your copy
+
 ```
 git clone git://github.com/fernandopcg/pymputator.git
 ```
 
-2- Configure files as stated above and then launch the script
-* TBD
+Usage
+-----
 
-```sh
-python pymputator.py
+```
+python imputar.py
 ```
 
-3- ???
-
-4- Profit
+You will be prompted for user and password, just fill them and wait, then you will have the current month imputed
+If your day work has more than one row to input, only the first one will be imputed.
