@@ -30,7 +30,7 @@ cd pymputator
 Install requeriments
 
 ```
-pip install requeriments.txt
+pip install -r requeriments.txt
 ```
 
 Usage
